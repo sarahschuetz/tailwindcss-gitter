@@ -1,0 +1,28 @@
+{
+  "name": "tailwindcss-gitter",
+  "version": "1.0.0",
+  "description": "Gitter Plugin for tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahschuetz/tailwindcss-gitter.git"
+  },
+  "keywords": [
+    "grid",
+    "tailwind",
+    "gitter"
+  ],
+  "author": "Sarah Schütz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sarahschuetz/tailwindcss-gitter/issues"
+  },
+  "homepage": "https://github.com/sarahschuetz/tailwindcss-gitter#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.19.1"
+  }
+}

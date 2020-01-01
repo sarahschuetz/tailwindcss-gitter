@@ -1,1 +1,1 @@
-# tailwindcss-gitter
+# Gitter Tailwind Plugin
