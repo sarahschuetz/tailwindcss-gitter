@@ -28,7 +28,11 @@ const addGitterVariant = (addVariant, e, theme, gitter) => {
         const selector = `.${e(`${size}${separator}${COL_CLASS_BASE}${i}`)}`;
         const rule = new postcss.rule({ selector }); // eslint-disable-line
         rule.append({ prop: 'width', value: calcWidthValue(gitter, cols, i) });
-        rule.append({ prop: 'max-width', value: calcMaxWidthValue(gitter, cols, i) });
+
+        if (gitter.sectionMaxWidth) {
+          rule.append({ prop: 'max-width', value: calcMaxWidthValue(gitter, cols, i) });
+        }
+
         colRule.append(rule);
       }
 
@@ -48,10 +52,18 @@ const addColUtilities = ({
 
   const colUtilities = {};
   Array.from(Array(columnCount), (el, i) => i + 1).forEach((colNumber) => {
-    colUtilities[`.${COL_CLASS_BASE}${colNumber}`] = {
-      width: calcWidthValue(gitter, columnCount, colNumber),
-      maxWidth: calcMaxWidthValue(gitter, columnCount, colNumber),
-    };
+    const selector = `.${COL_CLASS_BASE}${colNumber}`;
+
+    if (gitter.sectionMaxWidth) {
+      colUtilities[selector] = {
+        width: calcWidthValue(gitter, columnCount, colNumber),
+        maxWidth: calcMaxWidthValue(gitter, columnCount, colNumber),
+      };
+    } else {
+      colUtilities[selector] = {
+        width: calcWidthValue(gitter, columnCount, colNumber),
+      };
+    }
   });
 
   addUtilities(colUtilities, [COL_VARIANT]);
