@@ -1,10 +1,8 @@
 const gitter = {
-  cols: 12,
+  cols: 24,
   responsiveCols: {},
-  gutterMin: '8px',
-  gutterMax: '16px',
   outerGutter: '1rem',
-  sectionMaxWidth: '1200px',
+  sectionMaxWidth: '1440px',
 };
 
 module.exports = gitter;
