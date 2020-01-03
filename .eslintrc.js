@@ -7,11 +7,12 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es6: true,
   },
 
   parserOptions: {
     parser: 'babel-eslint',
-    ecmaVersion: 6,
+    ecmaVersion: 9,
     sourceType: 'module',
   },
 
@@ -33,5 +34,6 @@ module.exports = {
       'ignoreStrings': true,
       'ignorePattern': 'd=\".*\"', // ignore long svg path descriptions
     }],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
 }
