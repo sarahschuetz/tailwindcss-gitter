@@ -113,8 +113,9 @@ module.exports = {
 
 With this configuration, the following classes will be generated in addition to the default column utilities:
 
-| xs:w-col-1  | The width of the element should be 1 of 6 columns   |
+| Utility     | Description                                         |
 |-------------|-----------------------------------------------------|
+| xs:w-col-1  | The width of the element should be 1 of 6 columns   |
 | xs:w-col-2  | The width of the element should be 2 of 6 columns   |
 | xs:w-col-3  | The width of the element should be 3 of 6 columns   |
 | ...         | ...                                                 |
