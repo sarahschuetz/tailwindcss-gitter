@@ -67,9 +67,75 @@ By default a *Section* is not centered. To get a centered *Section*, just use th
 
 #### Column Utilities
 
+Per default *Gitter* will generate 24 utility classes for specifying the width of elements according to the configured grid:
+
+| Utility  | Description                                         |
+|----------|-----------------------------------------------------|
+| w-col-1  | The width of the element should be 1 of 24 columns  |
+| w-col-2  | The width of the element should be 2 of 24 columns  |
+| w-col-3  | The width of the element should be 3 of 24 columns  |
+| ...      | ...                                                 |
+| w-col-24 | The width of the element should be 24 of 24 columns |
+
+If costum `responsiveCols` are defined additional classes prefixed with the specified breakpoints will be genereated (using media queries).
+
 ### Settings
 *Gitter* offers various configurations to adapt to the needs of different projects:
 
+| Setting         | Default | Description                                                                                                                                                                 |
+|-----------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| cols            | 24      | Defines the default number of columns (if no breakpoints are specified).                                                                                                     |
+| responsiveCols  | {}      | Allows to define different amount of columns for specific breakpoints. The key must correlate with a breakpoint defined in Tailwind CSS and the value is the number of cols. |
+| outerGutter     | 1rem    | Defines the spacing between the browser window and the section width.                                                                                                        |
+| sectionMaxWidth | 1440px  | Defines the maximum width for a section. If set to false, section will have no max-width.                                                                                    |
+
+#### Custom settings
+Example config using a different number of cols on mobile and desktop:
+```
+// tailwind.config.js
+
+module.exports = {
+  ...
+  theme: {
+    ...
+    gitter: {
+      cols: 24,
+      responsiveCols: {
+        xs: '6',
+        lg: '24'
+      },
+      outerGutter: '1rem',
+      sectionMaxWidth: false
+    }
+  }
+};
+```
+
+With this configuration, the following classes will be generated in addition to the default column utilities:
+
+| xs:w-col-1  | The width of the element should be 1 of 6 columns   |
+|-------------|-----------------------------------------------------|
+| xs:w-col-2  | The width of the element should be 2 of 6 columns   |
+| xs:w-col-3  | The width of the element should be 3 of 6 columns   |
+| ...         | ...                                                 |
+| xs:w-col-6  | The width of the element should be 6 of 6 columns   |
+|             |                                                     |
+| lg:w-col-1  | The width of the element should be 1 of 24 columns  |
+| lg:w-col-2  | The width of the element should be 2 of 24 columns  |
+| lg:w-col-3  | The width of the element should be 3 of 24 columns  |
+| ...         | ...                                                 |
+| lg:w-col-24 | The width of the element should be 24 of 24 columns |
+
+#### Default config
+If no custom settings are defined, *Gitter* defaults to the following values:
+```
+{
+  cols: 24,
+  responsiveCols: {},
+  outerGutter: '1rem',
+  sectionMaxWidth: '1440px',
+}
+```
 
 
 
